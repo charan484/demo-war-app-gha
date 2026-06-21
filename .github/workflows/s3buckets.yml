@@ -1,0 +1,13 @@
+name: List of s3 buckets
+on:
+  workflow_dispatch:
+jobs:
+  list_of_buckets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list of available buckets
+        run: |
+          export AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY}}
+          export AWS_SECRETE_ACEESS_KEY=${{secrets.AWS_SECRET_ACCESS_KEY}}
+          export AWS_DEFAULT_REGION=${{secrets.AWS_DEFAULT_REGION}}
+          aws s3 ls
